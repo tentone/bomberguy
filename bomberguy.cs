@@ -2,36 +2,45 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
+
+
 public class Bomberguy : Game
 {
     private GraphicsDeviceManager _graphics;
+
     private SpriteBatch _spriteBatch;
+
+    private Texture2D _bomb;
 
     public Bomberguy()
     {
-        _graphics = new GraphicsDeviceManager(this);
-        Content.RootDirectory = "Content";
-        IsMouseVisible = true;
+        this._graphics = new GraphicsDeviceManager(this);
+        this.Content.RootDirectory = "Content";
+        this.IsMouseVisible = true;
+
+        this._bomb = Content.Load<Texture2D>("./assets/bomb.png");
     }
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
 
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
+        this._spriteBatch = new SpriteBatch(GraphicsDevice);
 
         // TODO: use this.Content to load your game content here
     }
 
     protected override void Update(GameTime time)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) {
+            this.Exit();
+        }
+        
 
         // TODO: Add your update logic here
 
@@ -40,8 +49,7 @@ public class Bomberguy : Game
 
     protected override void Draw(GameTime time)
     {
-        GraphicsDevice.Clear(Color.Red);
-
+        GraphicsDevice.Clear(Color.Black);
 
         base.Draw(time);
     }

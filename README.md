@@ -3,7 +3,7 @@
  - Vacation project
 
 ## Assets
- - Game assets are encapsulated using the MGCB Editor
+ - Game assets are encapsulated using the [MonoGame Content Builder (MGCB)](https://docs.monogame.net/articles/tools/mgcb_editor.html) Editor
  - To launch the editor run `dotnet mgcb-editor`
 
 ## Android Support

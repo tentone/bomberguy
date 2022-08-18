@@ -15,4 +15,10 @@ internal class Camera
      * Center of the camera.
      */
     public Vector2 center;
+
+    public Matrix transformationMatrix() {
+        // TODO <ADD CODE HERE>
+
+        return new Matrix();
+    }
 }

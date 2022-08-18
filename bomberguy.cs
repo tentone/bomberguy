@@ -69,7 +69,6 @@ public class Bomberguy : Game
         GraphicsDevice.Clear(Color.Black);
 
         spriteBatch.Begin();
-
         spriteBatch.Draw(bomb, new Rectangle(0, 0, 30, 30), Color.White);
         spriteBatch.DrawString(this.font, "BomberGuy", new Vector2(100, 100), Color.White);
 

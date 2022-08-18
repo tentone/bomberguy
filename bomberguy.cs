@@ -4,6 +4,11 @@ using Microsoft.Xna.Framework.Input;
 using SpriteFontPlus;
 using System.IO;
 
+/**
+ * Main game class.
+ * 
+ * Handles all the main logic cycles.
+ */
 public class Bomberguy : Game
 {
     private GraphicsDeviceManager graphics;
@@ -29,7 +34,7 @@ public class Bomberguy : Game
 
     protected override void LoadContent()
     {
-        this.spriteBatch = new SpriteBatch(GraphicsDevice);
+        this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
         FileStream fileStream = new FileStream("./assets/textures/bomb.png", FileMode.Open);
         this.bomb = Texture2D.FromStream(this.GraphicsDevice, fileStream);
@@ -67,6 +72,7 @@ public class Bomberguy : Game
 
         spriteBatch.Draw(bomb, new Rectangle(0, 0, 30, 30), Color.White);
         spriteBatch.DrawString(this.font, "BomberGuy", new Vector2(100, 100), Color.White);
+
         spriteBatch.End();
 
         base.Draw(time);

@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
 
-namespace bomberguy
+
+/**
+ * Camera is used to control the viewport of the game.
+ */
+internal class Camera
 {
-    internal class Class1
-    {
-    }
+    /**
+     * Zoom level of the camera.
+     */
+    public float zoom;
+
+    /**
+     * Center of the camera.
+     */
+    public Vector2 center;
 }

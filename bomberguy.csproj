@@ -27,6 +27,9 @@
     <Folder Include="assets\fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="assets\fonts\PressStart2P.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="assets\textures\bomb.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

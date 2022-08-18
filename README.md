@@ -10,5 +10,8 @@
  - To run the game in android you need the dotnet android workload
  - `dotnet workload install android`
 
+## Libraries
+ - [SpriteFont Plus](https://github.com/rds1983/SpriteFontPlus)
+
 ##  License 
  - The project is distributed under a MIT license available on the GitHub repository.

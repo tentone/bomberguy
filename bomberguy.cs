@@ -1,25 +1,24 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
-
-
+using System.IO;
 
 public class Bomberguy : Game
 {
-    private GraphicsDeviceManager _graphics;
+    private GraphicsDeviceManager graphics;
 
-    private SpriteBatch _spriteBatch;
+    private SpriteBatch spriteBatch;
 
-    private Texture2D _bomb;
+    private Texture2D bomb;
+
+    private SpriteFont font;
 
     public Bomberguy()
     {
-        this._graphics = new GraphicsDeviceManager(this);
+        this.graphics = new GraphicsDeviceManager(this);
         this.Content.RootDirectory = "Content";
         this.IsMouseVisible = true;
 
-        this._bomb = Content.Load<Texture2D>("./assets/bomb.png");
     }
 
     protected override void Initialize()
@@ -30,7 +29,11 @@ public class Bomberguy : Game
 
     protected override void LoadContent()
     {
-        this._spriteBatch = new SpriteBatch(GraphicsDevice);
+        this.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+        FileStream fileStream = new FileStream("./assets/textures/bomb.png", FileMode.Open);
+        this.bomb = Texture2D.FromStream(this.GraphicsDevice, fileStream);
+        fileStream.Dispose();
 
         // TODO: use this.Content to load your game content here
     }
@@ -50,6 +53,12 @@ public class Bomberguy : Game
     protected override void Draw(GameTime time)
     {
         GraphicsDevice.Clear(Color.Black);
+
+        spriteBatch.Begin();
+
+        spriteBatch.Draw(bomb, new Rectangle(0, 0, 30, 30), Color.White);
+        // spriteBatch.(font, "Score", new Vector2(100, 100), Color.Black);
+        spriteBatch.End();
 
         base.Draw(time);
     }

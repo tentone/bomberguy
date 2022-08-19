@@ -28,7 +28,6 @@ public class Bomberguy : Game
 
     protected override void Initialize()
     {
-
         base.Initialize();
     }
 
@@ -36,20 +35,9 @@ public class Bomberguy : Game
     {
         this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
-        FileStream fileStream = new FileStream("./assets/textures/bomb.png", FileMode.Open);
-        this.bomb = Texture2D.FromStream(this.GraphicsDevice, fileStream);
-        fileStream.Dispose();
+        this.bomb = ContentUtils.Loadtexture(GraphicsDevice, "./assets/textures/bomb.png");
 
-        this.font = TtfFontBaker.Bake(File.ReadAllBytes("./assets/fonts/PressStart2P.ttf"), 20, 1024, 1024, new[]
-            {
-                CharacterRange.BasicLatin,
-                CharacterRange.Latin1Supplement,
-                CharacterRange.LatinExtendedA,
-                CharacterRange.Cyrillic
-            }
-        ).CreateSpriteFont(GraphicsDevice);
-
-        // TODO: use this.Content to load your game content here
+        this.font = ContentUtils.LoadFont(GraphicsDevice, "./assets/fonts/PressStart2P.ttf");
     }
 
     protected override void Update(GameTime time)

@@ -15,7 +15,7 @@ internal abstract class GameObject
     /**
      * Identifier of the game object.
      * 
-     * Each game object has its own unique ID.
+     * Each game object has its own unique ID.s
      */
     public int Id = ID++;
 
@@ -51,15 +51,17 @@ internal abstract class GameObject
      */
     public Scene Scene = null;
 
+    /**
+     * Update logic of the game object.
+     * 
+     * Include user interactions and interactions between objects.
+     */
+    abstract public void Update(GameTime time);
 
-
-    public void Update(GameTime time) {
-    
-    }
-    
-    public void Render(GameTime time, SpriteBatch spriteBatch) {
-    
-    }
+    /**
+     * Draw the object to the screen. The object is rendered in a sprite batch.
+     */
+    abstract public void Render(GameTime time, SpriteBatch spriteBatch);
 
     /**
      * Remove the object from scene, and cleanup any resources no longer being used.

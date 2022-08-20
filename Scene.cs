@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/**
+﻿/**
  * Scene is a collections of rendering objects that are drawn into screen.
  */
 internal class Scene
 {
-    public GameObject[] objects = new GameObject[];
+    public GameObject[] objects = new GameObject[0];
 
     /**
      * Add a new game objec to the scene.
      */
     public void Add(GameObject obj) {
-        
+           
     }
 
     /**

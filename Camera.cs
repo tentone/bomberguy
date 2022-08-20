@@ -9,24 +9,27 @@ internal class Camera
     /**
      * Zoom level of the camera.
      */
-    public float zoom = 1.0f;
+    public float Zoom = 1.0f;
 
     /**
-     * Center of the camera.
+     * Position of the camera.
      */
-    public Vector2 center = new Vector2();
+    public Vector2 Position = new Vector2();
 
+    /**
+     * Get the transformation matrix of the camera.
+     */
     public Matrix transformationMatrix() {
         Matrix matrix = new Matrix();
 
         // Apply zoom to the matrix
-        matrix.M11 = zoom;
-        matrix.M22 = zoom;
-        matrix.M33 = zoom;
+        matrix.M11 = Zoom;
+        matrix.M22 = Zoom;
+        matrix.M33 = Zoom;
 
         // Translation
-        matrix.M13 = center.X;
-        matrix.M23 = center.Y;
+        matrix.M13 = Position.X;
+        matrix.M23 = Position.Y;
 
         return matrix;
     }

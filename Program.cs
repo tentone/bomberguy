@@ -1,3 +1,1 @@
-﻿
-Bomberguy game = new Bomberguy();
-game.Run();
+﻿new Bomberguy().Run();

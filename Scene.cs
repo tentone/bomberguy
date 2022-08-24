@@ -30,6 +30,20 @@ internal class Scene
         this.objects.Remove(obj);
     }
 
+    /**
+     * Initialize objects in the scene.
+     */
+    public void Initialize(GraphicsDevice graphicsDevice)
+    {
+        foreach (GameObject obj in this.objects)
+        {
+            obj.Initialize(graphicsDevice);
+        }
+    }
+       
+    /**
+     * Update the state of objects in the scene.
+     */
     public void Update(GameTime time) {
         foreach (GameObject obj in this.objects)
         {
@@ -37,6 +51,9 @@ internal class Scene
         }
     }
 
+    /**
+     * Render objects to the screen.
+     */
     public void Render(GameTime time, SpriteBatch spriteBatch)
     {
         foreach (GameObject obj in this.objects)

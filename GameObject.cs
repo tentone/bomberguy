@@ -51,6 +51,14 @@ internal abstract class GameObject
      */
     public Scene Scene = null;
 
+
+    /**
+     * Initialize the game object. Load resources if necessary.
+     * 
+     * Called when the object is added to the scene.
+     */
+    abstract public void Initialize(GraphicsDevice graphicsDevice);
+
     /**
      * Update logic of the game object.
      * 

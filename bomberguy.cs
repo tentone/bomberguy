@@ -17,6 +17,8 @@ public class Bomberguy : Game
 
     private SpriteFont font;
 
+
+
     public Bomberguy()
     {
         this.graphics = new GraphicsDeviceManager(this);
@@ -33,9 +35,9 @@ public class Bomberguy : Game
     {
         this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
-        this.bomb = ContentUtils.Loadtexture(GraphicsDevice, "./assets/textures/bomb.png");
+        this.bomb = ContentUtils.Loadtexture(this.GraphicsDevice, "./assets/textures/bomb.png");
 
-        this.font = ContentUtils.LoadFont(GraphicsDevice, "./assets/fonts/PressStart2P.ttf");
+        this.font = ContentUtils.LoadFont(this.GraphicsDevice, "./assets/fonts/PressStart2P.ttf");
     }
 
     protected override void Update(GameTime time)

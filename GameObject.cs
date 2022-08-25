@@ -51,7 +51,6 @@ internal abstract class GameObject
      */
     public Scene Scene = null;
 
-
     /**
      * Initialize the game object. Load resources if necessary.
      * 

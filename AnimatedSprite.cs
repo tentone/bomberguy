@@ -37,8 +37,7 @@ internal class AnimatedSprite
      */
     private int frames;
 
-    public AnimatedSprite(Texture2D texture, int rows, int columns, int frames = 0)
-    {
+    public AnimatedSprite(Texture2D texture, int rows, int columns, int frames = 0) {
         this.Texture = texture;
         this.Rows = rows;
         this.Columns = columns;
@@ -46,17 +45,14 @@ internal class AnimatedSprite
         this.frames = frames == 0 ? Rows * Columns : frames;
     }
 
-    public void Update()
-    {
+    public void Update() {
         this.currentFrame++;
-        if (this.currentFrame == this.frames)
-        {
+        if (this.currentFrame == this.frames) {
             this.currentFrame = 0;
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch, Vector2 location)
-    {
+    public void Draw(SpriteBatch spriteBatch, Vector2 location) {
         int width = this.Texture.Width / this.Columns;
         int height = this.Texture.Height / this.Rows;
         int row = this.currentFrame / this.Columns;

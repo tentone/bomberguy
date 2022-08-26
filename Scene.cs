@@ -33,10 +33,8 @@ internal class Scene
     /**
      * Initialize objects in the scene.
      */
-    public void Initialize(GraphicsDevice graphicsDevice)
-    {
-        foreach (GameObject obj in this.objects)
-        {
+    public void Initialize(GraphicsDevice graphicsDevice) {
+        foreach (GameObject obj in this.objects) {
             obj.Initialize(graphicsDevice);
         }
     }
@@ -45,8 +43,7 @@ internal class Scene
      * Update the state of objects in the scene.
      */
     public void Update(GameTime time) {
-        foreach (GameObject obj in this.objects)
-        {
+        foreach (GameObject obj in this.objects) {
             obj.Update(time);
         }
     }
@@ -54,10 +51,8 @@ internal class Scene
     /**
      * Render objects to the screen.
      */
-    public void Render(GameTime time, SpriteBatch spriteBatch)
-    {
-        foreach (GameObject obj in this.objects)
-        {
+    public void Render(GameTime time, SpriteBatch spriteBatch) {
+        foreach (GameObject obj in this.objects) {
             obj.Render(time, spriteBatch);
         }
     }

@@ -19,7 +19,6 @@ class Player : SpriteGameObject
         this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/bomb.png");
     }
 
-
     public override void Update(GameTime time)
     {
         if (Keyboard.GetState().IsKeyDown(Keys.Left))
@@ -38,9 +37,6 @@ class Player : SpriteGameObject
         {
             this.Position.Y += this.Speed;
         }
-
-
-        //this.Position.X += 0.1f;
     }
 
 

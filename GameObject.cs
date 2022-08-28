@@ -25,28 +25,6 @@ abstract class GameObject
     public bool Visible = true;
 
     /**
-     * Position of the object.
-     */
-    public Vector2 Position = new Vector2(0.0f, 0.0f);
-
-    /**
-     * Scale of the object.
-     */
-    public Vector2 Scale = new Vector2(1.0f, 1.0f);
-
-    /**
-     * Center point of the object.
-     * 
-     * Position and rotation are relative to the center point.
-     */
-    public Vector2 Origin = new Vector2(0.0f, 0.0f);
-
-    /**
-     * Rotation of the object.
-     */
-    public float Rotation = 0.0f;
-
-    /**
      * Scene where this object belongs.
      */
     public Scene Scene = null;

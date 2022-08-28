@@ -1,20 +1,34 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-internal class Player : GameObject
+class Player : GameObject
 {
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void Render(GameTime time, SpriteBatch spriteBatch)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void Update(GameTime time)
     {
-        throw new System.NotImplementedException();
+        if (Keyboard.GetState().IsKeyDown(Keys.Left))
+        {
+
+        }
+        else if (Keyboard.GetState().IsKeyDown(Keys.Right))
+        {
+
+        }
+        else if (Keyboard.GetState().IsKeyDown(Keys.Up))
+        {
+
+        }
+        else if (Keyboard.GetState().IsKeyDown(Keys.Down))
+        {
+
+        }
     }
 }

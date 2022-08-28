@@ -19,6 +19,10 @@ public class GameLoop : Game
 
     private SpriteFont font;
 
+    private Scene scene = new Scene();
+
+    private Camera camera = new Camera();
+
     public GameLoop()
     {
         this.graphics = new GraphicsDeviceManager(this);

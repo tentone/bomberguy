@@ -17,7 +17,8 @@ internal class Scene
     /**
      * Add a new game objec to the scene.
      */
-    public void Add(GameObject obj) {
+    public void Add(GameObject obj)
+    {
         this.objects.Add(obj);
     }
 
@@ -26,24 +27,29 @@ internal class Scene
      * 
      * The object is destroyed before removal.
      */
-    public void Remove(GameObject obj) {
+    public void Remove(GameObject obj)
+    {
         this.objects.Remove(obj);
     }
 
     /**
      * Initialize objects in the scene.
      */
-    public void Initialize(GraphicsDevice graphicsDevice) {
-        foreach (GameObject obj in this.objects) {
+    public void Initialize(GraphicsDevice graphicsDevice)
+    {
+        foreach (GameObject obj in this.objects)
+        {
             obj.Initialize(graphicsDevice);
         }
     }
-       
+
     /**
      * Update the state of objects in the scene.
      */
-    public void Update(GameTime time) {
-        foreach (GameObject obj in this.objects) {
+    public void Update(GameTime time)
+    {
+        foreach (GameObject obj in this.objects)
+        {
             obj.Update(time);
         }
     }
@@ -51,8 +57,10 @@ internal class Scene
     /**
      * Render objects to the screen.
      */
-    public void Render(GameTime time, SpriteBatch spriteBatch) {
-        foreach (GameObject obj in this.objects) {
+    public void Render(GameTime time, SpriteBatch spriteBatch)
+    {
+        foreach (GameObject obj in this.objects)
+        {
             obj.Render(time, spriteBatch);
         }
     }

@@ -12,6 +12,7 @@
 
 ## Libraries
  - [SpriteFont Plus](https://github.com/rds1983/SpriteFontPlus)
+ - [Dotnet Format](https://github.com/dotnet/format)
 
 ##  License 
  - The project is distributed under a MIT license available on the GitHub repository.

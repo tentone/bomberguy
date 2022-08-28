@@ -8,10 +8,10 @@ using Microsoft.Xna.Framework.Graphics;
 * 
 * The game object class should be inherited by other objects that will implement the required control and rendering code.
 */
-internal abstract class GameObject
+abstract class GameObject
 {
     public static int ID = 0;
-    
+
     /**
      * Identifier of the game object.
      * 
@@ -23,7 +23,7 @@ internal abstract class GameObject
      * Visibility of the object. If false the object is not rendered.
      */
     public bool Visible = true;
-        
+
     /**
      * Position of the object.
      */
@@ -73,7 +73,8 @@ internal abstract class GameObject
     /**
      * Remove the object from scene, and cleanup any resources no longer being used.
      */
-    public void Destroy() {
+    public void Destroy()
+    {
         this.Scene.Remove(this);
     }
 }

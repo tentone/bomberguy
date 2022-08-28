@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-internal class Bomb : GameObject
+class Bomb : GameObject
 {
     public override void Initialize(GraphicsDevice graphicsDevice)
     {

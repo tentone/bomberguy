@@ -4,7 +4,7 @@
 /**
  * Camera is used to control the viewport of the game.
  */
-internal class Camera
+class Camera
 {
     /**
      * Zoom level of the camera.
@@ -19,7 +19,8 @@ internal class Camera
     /**
      * Get the transformation matrix of the camera.
      */
-    public Matrix transformationMatrix() {
+    public Matrix transformationMatrix()
+    {
         Matrix matrix = new Matrix();
 
         // Apply zoom to the matrix

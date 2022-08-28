@@ -33,15 +33,17 @@ public class GameLoop : Game
     protected override void Initialize()
     {
         base.Initialize();
-    }
 
-    protected override void LoadContent()
-    {
+        this.scene.Add(new Player());
+
+        this.scene.Initialize(this.GraphicsDevice);
+
         this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
         this.bomb = ContentUtils.Loadtexture(this.GraphicsDevice, "./assets/textures/bomb.png");
 
         this.font = ContentUtils.LoadFont(this.GraphicsDevice, "./assets/fonts/PressStart2P.ttf");
+
     }
 
     protected override void Update(GameTime time)
@@ -51,20 +53,23 @@ public class GameLoop : Game
             this.Exit();
         }
 
-
-
         base.Update(time);
+
+        this.scene.Update(time);
     }
 
     protected override void Draw(GameTime time)
     {
         GraphicsDevice.Clear(Color.Black);
 
-        spriteBatch.Begin();
-        spriteBatch.Draw(bomb, new Rectangle(0, 0, 30, 30), Color.White);
-        spriteBatch.DrawString(this.font, "BomberGuy", new Vector2(100, 100), Color.White);
+        this.spriteBatch.Begin();
 
-        spriteBatch.End();
+        this.scene.Render(time, this.spriteBatch);
+
+        //this.spriteBatch.Draw(bomb, new Rectangle(0, 0, 30, 30), Color.White);
+        //this.spriteBatch.DrawString(this.font, "BomberGuy", new Vector2(100, 100), Color.White);
+
+        this.spriteBatch.End();
 
         base.Draw(time);
     }

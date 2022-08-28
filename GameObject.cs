@@ -39,7 +39,7 @@ abstract class GameObject
      * 
      * Position and rotation are relative to the center point.
      */
-    public Vector2 Center = new Vector2(0.0f, 0.0f);
+    public Vector2 Origin = new Vector2(0.0f, 0.0f);
 
     /**
      * Rotation of the object.

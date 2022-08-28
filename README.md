@@ -1,4 +1,4 @@
-# bomberguy
+# Bomberguy
  - Bomberman like game developed with C# and Monogame
  - Vacation project
 
@@ -12,6 +12,7 @@
 
 ## Libraries
  - [SpriteFont Plus](https://github.com/rds1983/SpriteFontPlus)
+ - [Arther Physics](https://github.com/tainicom/Aether.Physics2D)
  - [Dotnet Format](https://github.com/dotnet/format)
 
 ##  License 

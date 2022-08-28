@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-class Wall : GameObject
-{
-    public bool destrutable = false;
 
+class BombFire : GameObject
+{
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
         throw new System.NotImplementedException();

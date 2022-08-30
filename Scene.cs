@@ -19,7 +19,9 @@ internal class Scene
      */
     public void Add(GameObject obj)
     {
+        obj.Scene = this;
         this.objects.Add(obj);
+        // TODO <INIT OBJECCT>
     }
 
     /**
@@ -48,7 +50,8 @@ internal class Scene
      */
     public void Update(GameTime time)
     {
-        foreach (GameObject obj in this.objects)
+        GameObject[] objs = this.objects.ToArray();
+        foreach (GameObject obj in objs)
         {
             obj.Update(time);
         }

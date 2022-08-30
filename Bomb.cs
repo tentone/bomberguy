@@ -1,19 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-class Bomb : GameObject
+
+class Bomb : SpriteGameObject
 {
+    /**
+     * Power (range) of the bombs dropped by the player.
+     */
+    public int Power = 1;
+
+    /**
+     * Time left until the bomb explodes in seconds.
+     */
+    public float TimeLeft = 3.0f;
+
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Render(GameTime time, SpriteBatch spriteBatch)
-    {
-        throw new System.NotImplementedException();
+        this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/bomb.png");
+    
     }
 
     public override void Update(GameTime time)
     {
-        throw new System.NotImplementedException();
+        float delta = (float)time.ElapsedGameTime.TotalSeconds;
+        this.TimeLeft -= delta;
+        if (this.TimeLeft < 0) {
+            this.Scene.Remove(this);
+            // TODO <EXPLODE BOMB>
+        }
     }
 }

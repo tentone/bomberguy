@@ -16,7 +16,6 @@ class Bomb : SpriteGameObject
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
         this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/bomb.png");
-    
     }
 
     public override void Update(GameTime time)

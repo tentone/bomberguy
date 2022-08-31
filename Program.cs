@@ -19,7 +19,7 @@ public class GameLoop : Game
 
     private SpriteFont font;
 
-    private Scene scene = new Scene();
+    private Scene scene = null;
 
     private Camera camera = new Camera();
 
@@ -34,9 +34,10 @@ public class GameLoop : Game
     {
         base.Initialize();
 
-        this.scene.Add(new Player());
+           
+        this.scene = new Scene(this.GraphicsDevice);
 
-        this.scene.Initialize(this.GraphicsDevice);
+        this.scene.Add(new Player());
 
         this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 

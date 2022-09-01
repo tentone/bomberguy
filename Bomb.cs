@@ -24,6 +24,7 @@ class Bomb : SpriteGameObject
         this.TimeLeft -= delta;
         if (this.TimeLeft < 0) {
             this.Scene.Remove(this);
+
             // TODO <EXPLODE BOMB>
         }
     }

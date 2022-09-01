@@ -25,6 +25,13 @@ class Bomb : SpriteGameObject
         if (this.TimeLeft < 0) {
             this.Scene.Remove(this);
 
+
+            var fire = new Fire();
+            fire.Position.X = this.Position.X;
+            fire.Position.Y = this.Position.Y;
+
+
+            this.Scene.Add(fire);
             // TODO <EXPLODE BOMB>
         }
     }

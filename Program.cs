@@ -15,8 +15,6 @@ public class GameLoop : Game
 
     private SpriteBatch spriteBatch;
 
-    private Texture2D bomb;
-
     private SpriteFont font;
 
     private Scene scene = null;
@@ -40,8 +38,6 @@ public class GameLoop : Game
         this.scene.Add(new Player());
 
         this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
-
-        this.bomb = ContentUtils.Loadtexture(this.GraphicsDevice, "./assets/textures/bomb.png");
 
         this.font = ContentUtils.LoadFont(this.GraphicsDevice, "./assets/fonts/PressStart2P.ttf");
 
@@ -67,7 +63,6 @@ public class GameLoop : Game
 
         this.scene.Render(time, this.spriteBatch);
 
-        //this.spriteBatch.Draw(bomb, new Rectangle(0, 0, 30, 30), Color.White);
         //this.spriteBatch.DrawString(this.font, "BomberGuy", new Vector2(100, 100), Color.White);
 
         this.spriteBatch.End();

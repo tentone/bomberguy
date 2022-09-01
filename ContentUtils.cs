@@ -9,7 +9,7 @@ class ContentUtils
      */
     public static Texture2D Loadtexture(GraphicsDevice graphicsDevice, string fname)
     {
-        FileStream fileStream = new FileStream("./assets/textures/bomb.png", FileMode.Open);
+        FileStream fileStream = new FileStream(fname, FileMode.Open);
         Texture2D texture = Texture2D.FromStream(graphicsDevice, fileStream);
         fileStream.Dispose();
         return texture;
@@ -20,7 +20,7 @@ class ContentUtils
      */
     public static SpriteFont LoadFont(GraphicsDevice graphicsDevice, string fname)
     {
-        return TtfFontBaker.Bake(File.ReadAllBytes("./assets/fonts/PressStart2P.ttf"), 20, 1024, 1024, new[]
+        return TtfFontBaker.Bake(File.ReadAllBytes(fname), 20, 1024, 1024, new[]
             {
                 CharacterRange.BasicLatin,
                 CharacterRange.Latin1Supplement,

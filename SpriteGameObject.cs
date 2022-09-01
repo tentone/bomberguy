@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 abstract class SpriteGameObject: GameObject
 {
-
     /**
      * Texture used by the sprite object.
      */

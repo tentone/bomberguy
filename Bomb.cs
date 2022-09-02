@@ -24,15 +24,38 @@ class Bomb : SpriteGameObject
         this.TimeLeft -= delta;
         if (this.TimeLeft < 0) {
             this.Scene.Remove(this);
+            this.Explode();
+        }
+    }
+
+    public void Explode() {
+        var fire = new Fire();
+        fire.Position.X = this.Position.X;
+        fire.Position.Y = this.Position.Y;
+        this.Scene.Add(fire);
+
+        for (int i = 1; i <= Power; i++)
+        {
+            var l = new Fire();
+            l.Position.X = this.Position.X + i * 30;
+            l.Position.Y = this.Position.Y;
+            this.Scene.Add(l);
+
+            var r = new Fire();
+            r.Position.X = this.Position.X - i * 30;
+            r.Position.Y = this.Position.Y;
+            this.Scene.Add(r);
 
 
-            var fire = new Fire();
-            fire.Position.X = this.Position.X;
-            fire.Position.Y = this.Position.Y;
+            var u = new Fire();
+            u.Position.Y = this.Position.Y + i * 30;
+            u.Position.X = this.Position.X;
+            this.Scene.Add(u);
 
-
-            this.Scene.Add(fire);
-            // TODO <EXPLODE BOMB>
+            var d = new Fire();
+            d.Position.Y = this.Position.Y - i * 30;
+            d.Position.X = this.Position.X;
+            this.Scene.Add(d);
         }
     }
 }

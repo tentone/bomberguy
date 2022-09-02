@@ -11,13 +11,8 @@ using System.Threading.Tasks;
  * 
  * The animation is played from the top left corner to the bottom right corner.
  */
-class AnimatedSprite
+class AnimatedSprite : SpriteGameObject
 {
-    /**
-     * Texture that has the animation atlas.
-     */
-    public Texture2D Texture;
-
     /**
      * Rows of the atlas (evenly spaced).
      */
@@ -28,14 +23,17 @@ class AnimatedSprite
      */
     public int Columns;
 
-    private int currentFrame;
-
     /**
      * Number of frames of the animation.
      *
      * Can be less that the grid size of the atlas.
      */
     private int frames;
+
+    /**
+     * Current animation frame
+     */
+    private int currentFrame;
 
     public AnimatedSprite(Texture2D texture, int rows, int columns, int frames = 0)
     {
@@ -46,7 +44,7 @@ class AnimatedSprite
         this.frames = frames == 0 ? Rows * Columns : frames;
     }
 
-    public void Update()
+    public override void Update(GameTime time)
     {
         this.currentFrame++;
         if (this.currentFrame == this.frames)
@@ -55,7 +53,7 @@ class AnimatedSprite
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch, Vector2 location)
+    public override void Draw(GameTime time, SpriteBatch spriteBatch)
     {
         int width = this.Texture.Width / this.Columns;
         int height = this.Texture.Height / this.Rows;
@@ -63,10 +61,8 @@ class AnimatedSprite
         int column = this.currentFrame % this.Columns;
 
         Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-        Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+        Vector2 scale = new Vector2(this.Size.X / sourceRectangle.Width, this.Size.Y / sourceRectangle.Height);
 
-        spriteBatch.Begin();
-        spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-        spriteBatch.End();
+        spriteBatch.Draw(this.Texture, this.Position, sourceRectangle, Color.White, this.Rotation, this.Origin, scale, SpriteEffects.None, 0);
     }
 }

@@ -22,13 +22,20 @@ class Bomb : SpriteGameObject
     {
         float delta = (float)time.ElapsedGameTime.TotalSeconds;
         this.TimeLeft -= delta;
-        if (this.TimeLeft < 0) {
+        if (this.TimeLeft < 0)
+        {
             this.Scene.Remove(this);
             this.Explode();
         }
     }
 
-    public void Explode() {
+    /**
+     * Explode the bomb and create fire elements.
+     * 
+     * Fire will kill the player and destroy any walls
+     */
+    public void Explode()
+    {
         var fire = new Fire();
         fire.Position.X = this.Position.X;
         fire.Position.Y = this.Position.Y;

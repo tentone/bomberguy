@@ -32,10 +32,31 @@ public class GameLoop : Game
     {
         base.Initialize();
 
-           
+
         this.scene = new Scene(this.GraphicsDevice);
 
-        this.scene.Add(new Player());
+
+
+        for (int x = 0; x < 30; x++)
+        {
+            for (int y = 0; y < 30; y++)
+            {
+                string fname = (x + y) % 2 == 0 ? "ground_a.png" : "ground_b.png";
+                SpriteGameObject floor = new SpriteGameObject();
+                floor.Texture = ContentUtils.Loadtexture(this.GraphicsDevice, "./assets/textures/" + fname);
+                floor.Position.X = x * 30.0f;
+                floor.Position.Y = y * 30.0f;
+                this.scene.Add(floor);
+
+            }
+        }
+
+        Player a = new Player();
+        this.scene.Add(a);
+
+        //Player b = new Player();
+        //b.Position.X = 100.0f;
+        //this.scene.Add(b);
 
         this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 

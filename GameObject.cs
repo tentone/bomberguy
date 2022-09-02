@@ -34,24 +34,24 @@ abstract class GameObject
      * 
      * Called when the object is added to the scene.
      */
-    abstract public void Initialize(GraphicsDevice graphicsDevice);
+    public virtual void Initialize(GraphicsDevice graphicsDevice) { }
 
     /**
      * Update logic of the game object.
      * 
      * Include user interactions and interactions between objects.
      */
-    abstract public void Update(GameTime time);
+    public virtual void Update(GameTime time) { }
 
     /**
      * Draw the object to the screen. The object is rendered in a sprite batch.
      */
-    abstract public void Render(GameTime time, SpriteBatch spriteBatch);
+    public virtual void Render(GameTime time, SpriteBatch spriteBatch) { }
 
     /**
      * Remove the object from scene, and cleanup any resources no longer being used.
      */
-    public void Destroy()
+    public virtual void Destroy()
     {
         this.Scene.Remove(this);
     }

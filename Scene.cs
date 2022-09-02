@@ -13,13 +13,14 @@ internal class Scene
      * They are updated and rendered by their order.
      */
     public List<GameObject> objects = new List<GameObject>();
-    
+
     /**
      * Graphics device used by the scene objects.
      */
     public GraphicsDevice GraphicsDevice = null;
 
-    public Scene(GraphicsDevice graphicsDevice) {
+    public Scene(GraphicsDevice graphicsDevice)
+    {
         this.GraphicsDevice = graphicsDevice;
     }
 
@@ -30,7 +31,8 @@ internal class Scene
      */
     public void Add(GameObject obj)
     {
-        if (obj.Scene != null) {
+        if (obj.Scene != null)
+        {
             throw new System.Exception("Object cant have a scene set.");
         }
         obj.Scene = this;

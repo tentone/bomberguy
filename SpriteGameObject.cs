@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-abstract class SpriteGameObject: GameObject
+class SpriteGameObject : GameObject
 {
     /**
      * Texture used by the sprite object.
@@ -16,7 +16,7 @@ abstract class SpriteGameObject: GameObject
     /**
      * Size of the object.
      */
-    private Vector2 Size = new Vector2(30, 30);
+    public Vector2 Size = new Vector2(30.0f, 30.0f);
 
     /**
      * Center point of the object.

@@ -61,8 +61,7 @@ internal class FieldGenerator
             scene.Add(powerup);
         }
 
-
-        // Powerups
+        // Blocks
         int blocks = 300;
         for (int i = 0; i < blocks; i++)
         {

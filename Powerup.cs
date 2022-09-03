@@ -22,7 +22,7 @@ enum PowerupType
 /**
  * Powerups enhance the player capabilities.
  */
-class Powerup : SpriteGameObject
+class Powerup : GameObject
 {
     /**
      * Type of the powerup.

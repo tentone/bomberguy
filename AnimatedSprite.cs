@@ -1,17 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /**
  * Animated sprite is used to render a texture atlas with animation as drawing board.
  * 
  * The animation is played from the top left corner to the bottom right corner.
  */
-class AnimatedSprite : SpriteGameObject
+class AnimatedSprite : GameObject
 {
     /**
      * Rows of the atlas (evenly spaced).

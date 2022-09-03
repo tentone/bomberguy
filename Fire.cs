@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-class Fire : SpriteGameObject
+class Fire : GameObject
 {
     /**
      * Time left until the bomb fire disapears in seconds.

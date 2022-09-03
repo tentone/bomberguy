@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using tainicom.Aether.Physics2D.Dynamics;
 
-class Player : SpriteGameObject
+class Player : GameObject
 {
     /**
      * Player controlls is used to command the player.
@@ -30,10 +30,7 @@ class Player : SpriteGameObject
      */
     private float NextBombTime = 0.0f;
 
-    /**
-     * Physics simulation body.
-     */
-    public Body Body = null;
+
 
     public override void Initialize(GraphicsDevice graphicsDevice)
     {

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-class Bomb : SpriteGameObject
+class Bomb : GameObject
 {
     /**
      * Power (range) of the bombs dropped by the player.

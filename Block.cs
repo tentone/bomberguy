@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-class Block : SpriteGameObject
+class Block : GameObject
 {
     /**
      * If true the is destructible when it collides with fire.

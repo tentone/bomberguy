@@ -13,7 +13,7 @@ internal class FieldGenerator
             for (int y = 0; y < size; y++)
             {
                 string fname = (x + y) % 2 == 0 ? "ground_a.png" : "ground_b.png";
-                SpriteGameObject floor = new SpriteGameObject();
+                GameObject floor = new GameObject();
                 floor.Texture = ContentUtils.Loadtexture(scene.GraphicsDevice, "./assets/textures/" + fname);
                 floor.Position.X = x * spacing;
                 floor.Position.Y = y * spacing;

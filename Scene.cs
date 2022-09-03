@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using tainicom.Aether.Physics2D.Dynamics;
 
 /**
 * Scene is a collections of rendering objects that are drawn into screen.
@@ -13,6 +14,12 @@ internal class Scene
      * They are updated and rendered by their order.
      */
     public List<GameObject> objects = new List<GameObject>();
+
+
+    /**
+     * Physics simulation world.
+     */
+    public World World = new World();
 
     /**
      * Graphics device used by the scene objects.
@@ -33,8 +40,9 @@ internal class Scene
     {
         if (obj.Scene != null)
         {
-            throw new System.Exception("Object cant have a scene set.");
+            throw new System.Exception("Object cant have a scene defined.");
         }
+
         obj.Scene = this;
         this.objects.Add(obj);
         obj.Initialize(this.GraphicsDevice);
@@ -55,6 +63,8 @@ internal class Scene
      */
     public void Update(GameTime time)
     {
+        this.World.Step((float)time.ElapsedGameTime.TotalSeconds);
+
         GameObject[] objs = this.objects.ToArray();
         foreach (GameObject obj in objs)
         {

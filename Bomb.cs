@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 class Bomb : SpriteGameObject
 {
@@ -16,6 +17,8 @@ class Bomb : SpriteGameObject
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
         this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/bomb.png");
+
+        this.Origin = new Vector2(15.0f, 15.0f);
     }
 
     public override void Update(GameTime time)
@@ -27,6 +30,11 @@ class Bomb : SpriteGameObject
             this.Scene.Remove(this);
             this.Explode();
         }
+
+        // Animate bomb scale and rotation
+        float total = (float)time.TotalGameTime.TotalSeconds;
+        this.Rotation = (float)Math.Cos(total) * 0.5f;
+        this.Scale = (float)(Math.Cos(total * 3.0f)) * 0.1f + 0.9f;
     }
 
     /**
@@ -52,7 +60,6 @@ class Bomb : SpriteGameObject
             r.Position.X = this.Position.X - i * 30;
             r.Position.Y = this.Position.Y;
             this.Scene.Add(r);
-
 
             var u = new Fire();
             u.Position.Y = this.Position.Y + i * 30;

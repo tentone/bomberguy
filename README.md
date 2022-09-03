@@ -13,9 +13,10 @@
 
 ## Libraries
  - Libraries used are installed from the nugget package manager.
- - [SpriteFont Plus](https://github.com/rds1983/SpriteFontPlus)
- - [Arther Physics](https://github.com/tainicom/Aether.Physics2D)
- - [Dotnet Format](https://github.com/dotnet/format)
+	 - [Monogame](https://www.monogame.net/)
+	 - [SpriteFont Plus](https://github.com/rds1983/SpriteFontPlus)
+	 - [Arther Physics](https://github.com/tainicom/Aether.Physics2D)
+	 - [Dotnet Format](https://github.com/dotnet/format)
 
  ## Game Assets
  - Assets from the [Kenney.nl](https://kenney.nl/) project.

@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System;
-
-
+using tainicom.Aether.Physics2D.Dynamics;
 
 class Player : SpriteGameObject
 {
@@ -32,9 +30,16 @@ class Player : SpriteGameObject
      */
     private float NextBombTime = 0.0f;
 
+    /**
+     * Physics simulation body.
+     */
+    public Body Body = null;
+
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
         this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/Player/player_21.png");
+
+        this.Body = this.Scene.World.CreateRectangle(30.0f, 30.0f, 1.0f, this.Position, 0.0f, BodyType.Dynamic);
     }
 
     public override void Update(GameTime time)

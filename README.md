@@ -1,5 +1,5 @@
 # Bomberguy
- - Bomberman like game developed with C# and Monogame
+ - Bomberman like game developed with C# and [Monogame](https://www.monogame.net/)
  - Vacation project
 
 ## Assets
@@ -11,13 +11,15 @@
  - `dotnet workload install android`
 
 ## Libraries
+ - Libraries used are installed from the nugget package manager.
  - [SpriteFont Plus](https://github.com/rds1983/SpriteFontPlus)
  - [Arther Physics](https://github.com/tainicom/Aether.Physics2D)
  - [Dotnet Format](https://github.com/dotnet/format)
 
- ## Assets
- - Assets users from Kenney.nl
- - https://www.kenney.nl/assets/pixel-platformer
+ ## Game Assets
+ - Assets from the [Kenney.nl](https://kenney.nl/) project.
+ - Sokoban 2D pack https://kenney.nl/assets/sokoban
+ - Sci-fi Sound pack https://kenney.nl/assets/sci-fi-sounds
 
 ##  License 
  - The project is distributed under a MIT license available on the GitHub repository.

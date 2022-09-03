@@ -65,7 +65,6 @@ class Player : SpriteGameObject
             this.NextBombTime -= delta;
         }
 
-
         if (this.NextBombTime <= 0 && this.Controls.bomb())
         {
             Bomb bomb = new Bomb();

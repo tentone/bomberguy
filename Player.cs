@@ -3,8 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 
+
+
 class Player : SpriteGameObject
 {
+    /**
+     * Player controlls is used to command the player.
+     */
+    public PlayerControls Controls = new PlayerKeyboardControls();
+
     /**
      * Speed at wich the player moves around.
      */
@@ -35,19 +42,19 @@ class Player : SpriteGameObject
         float delta = (float)time.ElapsedGameTime.TotalSeconds;
 
         // Move the player around
-        if (Keyboard.GetState().IsKeyDown(Keys.Left))
+        if (this.Controls.left())
         {
             this.Position.X -= this.Speed * delta;
         }
-        if (Keyboard.GetState().IsKeyDown(Keys.Right))
+        if (this.Controls.right())
         {
             this.Position.X += this.Speed * delta;
         }
-        if (Keyboard.GetState().IsKeyDown(Keys.Up))
+        if (this.Controls.up())
         {
             this.Position.Y -= this.Speed * delta;
         }
-        if (Keyboard.GetState().IsKeyDown(Keys.Down))
+        if (this.Controls.down())
         {
             this.Position.Y += this.Speed * delta;
         }
@@ -59,7 +66,7 @@ class Player : SpriteGameObject
         }
 
 
-        if (this.NextBombTime <= 0 && Keyboard.GetState().IsKeyDown(Keys.Space))
+        if (this.NextBombTime <= 0 && this.Controls.bomb())
         {
             Bomb bomb = new Bomb();
             bomb.Power = this.Power;

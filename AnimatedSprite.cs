@@ -53,7 +53,7 @@ class AnimatedSprite : SpriteGameObject
         }
     }
 
-    public override void Draw(GameTime time, SpriteBatch spriteBatch)
+    public override void Render(GameTime time, SpriteBatch spriteBatch)
     {
         int width = this.Texture.Width / this.Columns;
         int height = this.Texture.Height / this.Rows;

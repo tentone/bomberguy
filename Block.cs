@@ -21,24 +21,16 @@ class Block : SpriteGameObject
 
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
-        string fname = "./assets/textures/crate_01.png";
+        string fname = "crate_01.png";
         if (this.Destructible)
         {
-            fname = "./assets/textures/crate_42.png";
+            fname = "crate_42.png";
             if (this.Explosive)
             {
-                fname = "./assets/textures/crate_43.png";
+                fname = "crate_43.png";
             }
         }
 
-        this.Texture = ContentUtils.Loadtexture(graphicsDevice, fname);
-    }
-
-    public override void Render(GameTime time, SpriteBatch spriteBatch)
-    {
-    }
-
-    public override void Update(GameTime time)
-    {
+        this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/" + fname);
     }
 }

@@ -49,12 +49,27 @@ internal class FieldGenerator
         Random random = new Random();
 
         // Powerups
-        int powerups = 15;
+        int powerups = 30;
         for (int i = 0; i < powerups; i++) {
-            Powerup powerup = new Powerup(PowerupType.FirePower);
-            powerup.Position.X = random.Next(size) * spacing;
-            powerup.Position.Y = random.Next(size) * spacing;
+
+            int power = random.Next(3);
+            PowerupType powerType = power == 0 ? PowerupType.FirePower : power == 1 ? PowerupType.BombTime : PowerupType.Speed;
+
+            Powerup powerup = new Powerup(powerType);
+            powerup.Position.X = (1 + random.Next(size - 2)) * spacing;
+            powerup.Position.Y = (1 + random.Next(size - 2)) * spacing;
             scene.Add(powerup);
+        }
+
+
+        // Powerups
+        int blocks = 300;
+        for (int i = 0; i < blocks; i++)
+        {
+            Block block = new Block(true, random.NextDouble() > 0.8);
+            block.Position.X = (1 + random.Next(size - 2)) * spacing;
+            block.Position.Y = (1 + random.Next(size - 2)) * spacing;
+            scene.Add(block);
         }
     }
 }

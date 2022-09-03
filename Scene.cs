@@ -56,6 +56,9 @@ internal class Scene
     public void Remove(GameObject obj)
     {
         this.objects.Remove(obj);
+        if (obj.Body != null) {
+            this.World.Remove(obj.Body);
+        }
     }
 
     /**

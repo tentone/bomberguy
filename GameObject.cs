@@ -51,7 +51,7 @@ class GameObject
      * 
      * Position and rotation are relative to the center point.
      */
-    public Vector2 Origin = new Vector2(0.0f, 0.0f);
+    public Vector2 Origin = new Vector2(15.0f, 15.0f);
 
     /**
      * Scale of the object applied after the size.
@@ -106,7 +106,13 @@ class GameObject
      * 
      * Include user interactions and interactions between objects.
      */
-    public virtual void Update(GameTime time) { }
+    public virtual void Update(GameTime time)
+    {
+        if (this.Body != null)
+        {
+            this.Position = this.Body.Position;
+        }
+    }
 
     /**
      * Remove the object from scene, and cleanup any resources no longer being used.

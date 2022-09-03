@@ -26,15 +26,25 @@ class Player : GameObject
     public float BombTime = 3.0f;
 
     /**
+     * Textures used by the player object
+     */
+    public Texture2D[] Textures = new Texture2D[4];
+
+    /**
      * Time until the next bomb can be planted.
      */
     private float NextBombTime = 0.0f;
 
-
-
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
-        this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/Player/player_21.png");
+        this.Textures[0] = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/Player/player_21.png");
+        this.Textures[1] = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/Player/player_01.png");
+        this.Textures[2] = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/Player/player_10.png");
+        this.Textures[3] = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/Player/player_12.png");
+
+        this.Texture = this.Textures[0];
+
+        this.Scale = 1.1f;
 
         this.Body = this.Scene.World.CreateRectangle(30.0f, 30.0f, 1.0f, this.Position, 0.0f, BodyType.Dynamic);
     }
@@ -47,18 +57,22 @@ class Player : GameObject
         if (this.Controls.left())
         {
             this.Position.X -= this.Speed * delta;
+            this.Texture = this.Textures[3];
         }
         if (this.Controls.right())
         {
             this.Position.X += this.Speed * delta;
+            this.Texture = this.Textures[2];
         }
         if (this.Controls.up())
         {
             this.Position.Y -= this.Speed * delta;
+            this.Texture = this.Textures[1];
         }
         if (this.Controls.down())
         {
             this.Position.Y += this.Speed * delta;
+            this.Texture = this.Textures[0];
         }
 
         // Decrease timer of next bomb placement

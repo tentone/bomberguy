@@ -1,7 +1,9 @@
 # Bomberguy
- - Bomberman like game developed with C# and [Monogame](https://www.monogame.net/).
- - Player can be controlled using the keyboard.
- - AI player can be created.
+ - Bomberman like game developed with C# and [Monogame](https://www.monogame.net/).´
+ - Local multiplayer game.
+ - Players can be controlled using the keyboard.
+
+ <img src="https://raw.githubusercontent.com/tentone/bomberguy/main/readme/video.gif" width="380">
 
 ## Assets
  - Game assets are encapsulated using the [MonoGame Content Builder (MGCB)](https://docs.monogame.net/articles/tools/mgcb_editor.html) Editor

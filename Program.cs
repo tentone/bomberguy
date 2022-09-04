@@ -26,6 +26,7 @@ public class GameLoop : Game
         this.graphics = new GraphicsDeviceManager(this);
         this.graphics.PreferredBackBufferHeight = 900;
         this.graphics.PreferredBackBufferWidth = 900;
+        this.graphics.GraphicsProfile = GraphicsProfile.Reach;
 
         this.Window.AllowUserResizing = true;
         this.Window.AllowAltF4 = true;

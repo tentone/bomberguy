@@ -64,6 +64,10 @@ class Player : GameObject
         this.Body.FixedRotation = true;
         this.Body.LinearDamping = 4.0f;
 
+
+        // Check collisions of player
+        this.Body.OnCollision.Add();
+
     }
 
     public override void Update(GameTime time)

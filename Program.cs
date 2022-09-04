@@ -36,6 +36,13 @@ public class GameLoop : Game
 
     protected override void Initialize()
     {
+        Fire.LoadTextures(this.GraphicsDevice);
+        Bomb.LoadTextures(this.GraphicsDevice);
+        Ground.LoadTextures(this.GraphicsDevice);
+        Block.LoadTextures(this.GraphicsDevice);
+        Player.LoadTextures(this.GraphicsDevice);
+        Powerup.LoadTextures(this.GraphicsDevice);
+
         base.Initialize();
 
         this.scene = new Scene(this.GraphicsDevice);

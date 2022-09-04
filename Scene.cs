@@ -19,7 +19,7 @@ internal class Scene
     /**
      * Physics simulation world.
      */
-    public World World = new World();
+    public World World = null;
 
     /**
      * Graphics device used by the scene objects.
@@ -29,6 +29,8 @@ internal class Scene
     public Scene(GraphicsDevice graphicsDevice)
     {
         this.GraphicsDevice = graphicsDevice;
+        this.World = new World();
+        this.World.Gravity = new Vector2(0.0f, 0.0f);
     }
 
     /**

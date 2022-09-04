@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using tainicom.Aether.Physics2D.Dynamics;
 
 class Bomb : GameObject
 {
@@ -14,15 +15,28 @@ class Bomb : GameObject
      */
     public float TimeLeft = 3.0f;
 
+    /**
+     * Texture shared across all object instances.
+     */
+    public static Texture2D BombTexture = null;
+
+    public static void LoadTextures(GraphicsDevice graphicsDevice)
+    {
+        Bomb.BombTexture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/bomb.png");
+    }
+
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
-        this.Texture = ContentUtils.Loadtexture(graphicsDevice, "./assets/textures/bomb.png");
+        this.Texture = Bomb.BombTexture;
 
-        this.Origin = new Vector2(15.0f, 15.0f);
+        this.Body = this.Scene.World.CreateCircle(12.0f, 0.0f, this.Position, BodyType.Dynamic);
+        this.Body.FixedRotation = false;
     }
 
     public override void Update(GameTime time)
     {
+        base.Update(time);
+
         float delta = (float)time.ElapsedGameTime.TotalSeconds;
         this.TimeLeft -= delta;
         if (this.TimeLeft < 0)

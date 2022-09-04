@@ -12,9 +12,8 @@ internal class FieldGenerator
         {
             for (int y = 0; y < size; y++)
             {
-                string fname = (x + y) % 2 == 0 ? "ground_a.png" : "ground_b.png";
-                GameObject floor = new GameObject();
-                floor.Texture = ContentUtils.Loadtexture(scene.GraphicsDevice, "./assets/textures/" + fname);
+                Ground floor = new Ground();
+                floor.Texture = Ground.Textures[(x + y) % 2];
                 floor.Position.X = x * spacing;
                 floor.Position.Y = y * spacing;
                 scene.Add(floor);
@@ -50,12 +49,9 @@ internal class FieldGenerator
 
         // Powerups
         int powerups = 30;
+        PowerupType[] powerType = (PowerupType[])Enum.GetValues(typeof(PowerupType));
         for (int i = 0; i < powerups; i++) {
-
-            int power = random.Next(3);
-            PowerupType powerType = power == 0 ? PowerupType.FirePower : power == 1 ? PowerupType.BombTime : PowerupType.Speed;
-
-            Powerup powerup = new Powerup(powerType);
+            Powerup powerup = new Powerup(powerType[random.Next(powerType.Length)]);
             powerup.Position.X = (1 + random.Next(size - 2)) * spacing;
             powerup.Position.Y = (1 + random.Next(size - 2)) * spacing;
             scene.Add(powerup);

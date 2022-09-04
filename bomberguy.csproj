@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\fonts\" />
+    <Folder Include="assets\sound\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="assets\**\*.*">

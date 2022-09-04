@@ -10,7 +10,7 @@ class Player : GameObject
     /**
      * Player controlls is used to command the player.
      */
-    public PlayerControls Controls = new PlayerKeyboardControls();
+    public PlayerControls Controls = null;
 
     /**
      * Speed at wich the player moves around.
@@ -56,6 +56,11 @@ class Player : GameObject
         }
     }
 
+    public Player(PlayerControls controls)
+    {
+        this.Controls = controls;
+    }
+
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
         this.Texture = Player.Textures[6];
@@ -67,6 +72,11 @@ class Player : GameObject
         this.Body.FixedRotation = true;
         this.Body.LinearDamping = 4.0f;
         this.Body.OnCollision += this.OnCollision;
+
+        Fixture power = this.Body.CreateCircle(11.0f, 0.0f);
+        power.CollisionGroup = 2;
+        power.CollisionCategories = Category.Cat2;
+        power.CollidesWith = Category.Cat2;
     }
 
     /**

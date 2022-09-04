@@ -50,14 +50,15 @@ public class GameLoop : Game
 
         FieldGenerator.Generate(this.scene);
 
-        Player a = new Player();
+        Player a = new Player(new PlayerKeyboardControls(PlayerKeyboardControls.KeysP1));
         a.Position.X = 60.0f;
         a.Position.Y = 60.0f;
         this.scene.Add(a);
 
-        //Player b = new Player();
-        //b.Position.X = 100.0f;
-        //this.scene.Add(b);
+        Player b = new Player(new PlayerKeyboardControls(PlayerKeyboardControls.KeysP2));
+        b.Position.X = 840.0f;
+        b.Position.Y = 840.0f;
+        this.scene.Add(b);
 
         this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 

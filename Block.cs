@@ -40,10 +40,10 @@ class Block : GameObject
     {
         this.Texture = this.Destructible ? this.Explosive ? Block.Textures[2] : Block.Textures[1] : Block.Textures[0];
 
-
         this.Body = this.Scene.World.CreateRectangle(this.Size.X - 0.1f, this.Size.Y - 0.1f, this.Rotation, this.Position, 0.0f, this.Destructible && this.Destructible ? BodyType.Dynamic : BodyType.Static);
         this.Body.FixedRotation = false;
         this.Body.Tag = this;
+
         if (this.Destructible)
         {
             this.Body.Mass = this.Explosive ? 10.0f : 100000.0f;

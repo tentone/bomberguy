@@ -33,12 +33,23 @@ interface PlayerControls
     public bool bomb();
 }
 
+
+
 class PlayerKeyboardControls : PlayerControls
 {
+    public static Keys[] KeysP1 = { Keys.Up, Keys.Down, Keys.Left, Keys.Right, Keys.M };
+
+    public static Keys[] KeysP2 = { Keys.W, Keys.S, Keys.A, Keys.D, Keys.Q };
+
     /**
      * List of keys to use in this player controller
      */
-    public Keys[] keys = { Keys.Up, Keys.Down, Keys.Left, Keys.Right, Keys.Space };
+    public Keys[] keys = PlayerKeyboardControls.KeysP1;
+
+    public PlayerKeyboardControls(Keys[] keys)
+    {
+        this.keys = keys;
+    }
 
     public bool up() { return Keyboard.GetState().IsKeyDown(this.keys[0]); }
     public bool down() { return Keyboard.GetState().IsKeyDown(this.keys[1]); }

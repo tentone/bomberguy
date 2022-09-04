@@ -24,7 +24,9 @@ class Fire : GameObject
         this.Texture = Fire.FireTexture;
 
         this.Body = this.Scene.World.CreateRectangle(this.Size.X, this.Size.Y, this.Rotation, this.Position, 0.0f, BodyType.Static);
+        this.Body.Tag = this;
     }
+
 
     public override void Update(GameTime time)
     {

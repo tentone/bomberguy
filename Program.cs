@@ -85,7 +85,7 @@ public class GameLoop : Game
 
         this.scene.Render(time, this.spriteBatch);
 
-        //this.spriteBatch.DrawString(this.font, "BomberGuy", new Vector2(100, 100), Color.White);
+        this.spriteBatch.DrawString(this.font, "BomberGuy", new Vector2(10, 10), Color.White, 0.0f, new Vector2(), 0.6f, SpriteEffects.None, 0);
 
         this.spriteBatch.End();
 

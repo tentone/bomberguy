@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
 using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 class Player : GameObject
 {
@@ -61,14 +63,34 @@ class Player : GameObject
         this.Scale = 1.0f;
 
         this.Body = this.Scene.World.CreateCircle(11.0f, 0.0f, this.Position, BodyType.Dynamic);
+        this.Body.Tag = this;
         this.Body.FixedRotation = true;
         this.Body.LinearDamping = 4.0f;
-
-
-        // Check collisions of player
-        this.Body.OnCollision.Add();
-
+        this.Body.OnCollision += this.OnCollision;
     }
+
+    /**
+     * Process collisions withs other objects in the scene.
+     */
+    public bool OnCollision(Fixture self, Fixture other, Contact contact)
+    {
+        Body body = other.Body;
+
+        if (body.Tag is Powerup)
+        {
+            Powerup power = (Powerup)body.Tag;
+            power.ApplyPowerup(this);
+            power.Destroy();
+        }
+
+        if (body.Tag is Fire)
+        {
+            this.Destroy();
+        }
+
+        return true;
+    }
+
 
     public override void Update(GameTime time)
     {

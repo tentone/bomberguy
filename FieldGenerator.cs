@@ -50,7 +50,8 @@ internal class FieldGenerator
         // Powerups
         int powerups = 30;
         PowerupType[] powerType = (PowerupType[])Enum.GetValues(typeof(PowerupType));
-        for (int i = 0; i < powerups; i++) {
+        for (int i = 0; i < powerups; i++)
+        {
             Powerup powerup = new Powerup(powerType[random.Next(powerType.Length)]);
             powerup.Position.X = (1 + random.Next(size - 2)) * spacing;
             powerup.Position.Y = (1 + random.Next(size - 2)) * spacing;

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using tainicom.Aether.Physics2D.Dynamics;
 
 /**
  * Type of the power up.
@@ -59,6 +60,12 @@ class Powerup : GameObject
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
         this.Texture = Powerup.Textures[this.Type];
+
+        this.Body = this.Scene.World.CreateCircle(5.0f, 0.0f, this.Position, BodyType.Static);
+        this.Body.Tag = this;
+        this.Body.FixtureList[0].CollisionGroup = 2;
+        this.Body.FixtureList[0].CollisionCategories = Category.Cat2;
+        this.Body.FixtureList[0].CollidesWith = Category.Cat2;
     }
 
     public override void Update(GameTime time)

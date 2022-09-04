@@ -111,6 +111,7 @@ class GameObject
         if (this.Body != null)
         {
             this.Position = this.Body.Position;
+            this.Rotation = this.Body.Rotation;
         }
     }
 

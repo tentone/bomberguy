@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 class Block : GameObject
 {
@@ -37,20 +38,38 @@ class Block : GameObject
 
     public override void Initialize(GraphicsDevice graphicsDevice)
     {
-        this.Texture = Block.Textures[0];
+        this.Texture = this.Destructible ? this.Explosive ? Block.Textures[2] : Block.Textures[1] : Block.Textures[0];
+
+
+        this.Body = this.Scene.World.CreateRectangle(this.Size.X - 0.1f, this.Size.Y - 0.1f, this.Rotation, this.Position, 0.0f, this.Destructible && this.Destructible ? BodyType.Dynamic : BodyType.Static);
+        this.Body.FixedRotation = false;
+        this.Body.Tag = this;
         if (this.Destructible)
         {
-            this.Texture = Block.Textures[1];
-            if (this.Explosive)
+            this.Body.Mass = this.Explosive ? 10.0f : 100000.0f;
+            this.Body.OnCollision += this.OnCollision;
+        }
+    }
+
+    /**
+     * Process collisions withs other objects in the scene.
+     */
+    public bool OnCollision(Fixture self, Fixture other, Contact contact)
+    {
+        if (this.Destructible)
+        {
+            Body body = other.Body;
+            if (body.Tag is Fire)
             {
-                this.Texture = Block.Textures[2];
+                this.Destroy();
             }
         }
 
-        this.Body = this.Scene.World.CreateRectangle(this.Size.X, this.Size.Y, this.Rotation, this.Position, 0.0f, this.Destructible && this.Explosive ? BodyType.Dynamic : BodyType.Static);
+        return true;
     }
 
-    public override void Destroy() {
+    public override void Destroy()
+    {
         base.Destroy();
 
         if (this.Explosive)

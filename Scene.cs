@@ -13,8 +13,7 @@ internal class Scene
      * 
      * They are updated and rendered by their order.
      */
-    public List<GameObject> objects = new List<GameObject>();
-
+    public List<GameObject> Objects = new List<GameObject>();
 
     /**
      * Physics simulation world.
@@ -46,7 +45,7 @@ internal class Scene
         }
 
         obj.Scene = this;
-        this.objects.Add(obj);
+        this.Objects.Add(obj);
         obj.Initialize(this.GraphicsDevice);
     }
 
@@ -57,9 +56,10 @@ internal class Scene
      */
     public void Remove(GameObject obj)
     {
-        this.objects.Remove(obj);
-        if (obj.Body != null) {
-            this.World.Remove(obj.Body);
+        this.Objects.Remove(obj);
+        if (obj.Body != null)
+        {
+            this.World.RemoveAsync(obj.Body);
         }
     }
 
@@ -70,7 +70,7 @@ internal class Scene
     {
         this.World.Step((float)time.ElapsedGameTime.TotalSeconds);
 
-        GameObject[] objs = this.objects.ToArray();
+        GameObject[] objs = this.Objects.ToArray();
         foreach (GameObject obj in objs)
         {
             obj.Update(time);
@@ -82,7 +82,7 @@ internal class Scene
      */
     public void Render(GameTime time, SpriteBatch spriteBatch)
     {
-        foreach (GameObject obj in this.objects)
+        foreach (GameObject obj in this.Objects)
         {
             obj.Render(time, spriteBatch);
         }

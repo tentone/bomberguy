@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
 using tainicom.Aether.Physics2D.Dynamics;
 
 class Bomb : GameObject
@@ -31,6 +32,7 @@ class Bomb : GameObject
 
         this.Body = this.Scene.World.CreateCircle(12.0f, 0.0f, this.Position, BodyType.Dynamic);
         this.Body.FixedRotation = false;
+        this.Body.Tag = this;
     }
 
     public override void Update(GameTime time)
@@ -47,7 +49,6 @@ class Bomb : GameObject
 
         // Animate bomb scale and rotation
         float total = (float)time.TotalGameTime.TotalSeconds;
-        this.Rotation = (float)Math.Cos(total) * 0.5f;
         this.Scale = (float)(Math.Cos(total * 3.0f)) * 0.1f + 0.9f;
     }
 
